@@ -1,0 +1,45 @@
+.thank-you {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #14537d;
+  color: white;
+  font-size: 30px;
+  width: 550px;
+  height: 250px;
+  border-radius: 10px;
+  margin: 9% auto;
+}
+.continue-shopping-container {
+  margin-top: 30px;
+}
+.thank-box {
+  height: 59vh;
+}
+
+.continue-shopping {
+  margin-top: 7px;
+  margin-bottom: 23px;
+  width: 100%;
+  background: #f3d078;
+  cursor: pointer;
+  border: 1px solid #9c7e31;
+  height: 35px;
+  outline: none;
+  border-radius: 3px;
+  color: #111;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+}
+.continue-shopping:hover {
+  transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 376px) and (max-height: 668px) {
+  .thank-you {
+    width: 350px;
+    height: 150px;
+    font-size: 18px;
+    margin-top: 100px;
+  }
+}
