@@ -28,7 +28,7 @@ const Right = ({ iteam, total }) => {
           Select this option at checkout. Details
         </span>
         <h3>
-          Subtotal ({iteam.length} items):{" "}
+          Subtotal ({iteam?.length} items):{" "}
           <span style={{ fotnWeight: 700 }}> ₹{price}.00</span>
         </h3>
         <button

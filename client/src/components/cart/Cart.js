@@ -73,7 +73,7 @@ const Cart = () => {
 
   return (
     <div className="cart_section">
-      {inddata && Object.keys(inddata).length && (
+      {inddata && Object.keys(inddata)?.length && (
         <div className="cart_container">
           <div className="left_cart">
             <img src={inddata.detailUrl} alt="cart_img" />

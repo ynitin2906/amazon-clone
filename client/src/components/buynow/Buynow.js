@@ -40,7 +40,7 @@ const Buynow = () => {
 
   return (
     <>
-      {cartdata.length ? (
+      {cartdata?.length ? (
         <div className="buynow_section">
           <div className="buynow_container">
             <div className="left_buy">

@@ -165,7 +165,7 @@ const Navbaar = () => {
           <div className="cart_btn">
             {account ? (
               <NavLink to="/buynow">
-                <Badge badgeContent={account.carts.length} color="primary">
+                <Badge badgeContent={account.carts?.length} color="primary">
                   <ShoppingCartIcon id="icon" />
                 </Badge>
               </NavLink>

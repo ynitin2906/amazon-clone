@@ -31,34 +31,36 @@ const Slide = ({ title, products }) => {
 
       <Divider />
 
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        draggable={false}
-        swipeable={true}
-        showDots={false}
-        centerMode={true}
-        autoPlay={true}
-        autoPlaySpeed={4000}
-        keyBoardControl={true}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-        containerClass="carousel-container"
-      >
-        {products.map((e) => (
-          <NavLink key={e.id} to={`/getproductsone/${e.id}`}>
-            <div className="products_items">
-              <div className="product_img">
-                <img src={e.url} alt="productitem" />
+      {products?.length > 0 ? (
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+          draggable={false}
+          swipeable={true}
+          showDots={false}
+          centerMode={true}
+          autoPlay={true}
+          autoPlaySpeed={4000}
+          keyBoardControl={true}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+          containerClass="carousel-container"
+        >
+          {products?.map((e) => (
+            <NavLink key={e.id} to={`/getproductsone/${e.id}`}>
+              <div className="products_items">
+                <div className="product_img">
+                  <img src={e.url} alt="productitem" />
+                </div>
+                <p className="products_name">{e.title.shortTitle}</p>
+                <p className="products_offer">{e.discount}</p>
+                <p className="products_explore">{e.tagline}</p>
               </div>
-              <p className="products_name">{e.title.shortTitle}</p>
-              <p className="products_offer">{e.discount}</p>
-              <p className="products_explore">{e.tagline}</p>
-            </div>
-          </NavLink>
-        ))}
-      </Carousel>
+            </NavLink>
+          ))}
+        </Carousel>
+      ) : null}
     </div>
   );
 };
