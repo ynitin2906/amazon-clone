@@ -41,27 +41,6 @@ const Navbaar = () => {
 
   const [dropen, setDropen] = useState(false);
 
-  const getdetailvaliduser = async () => {
-    const res = await fetch("/validuser", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
-
-    const data = await res.json();
-    console.log(data);
-
-    if (res.status !== 201) {
-      console.log("error");
-    } else {
-      console.log("data valid");
-      setAccount(data);
-    }
-  };
-
   const handleopen = () => {
     setDropen(true);
   };
@@ -102,8 +81,29 @@ const Navbaar = () => {
   };
 
   useEffect(() => {
+    const getdetailvaliduser = async () => {
+      const res = await fetch("/validuser", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      if (res.status !== 201) {
+        console.log("error");
+      } else {
+        console.log("data valid");
+        setAccount(data);
+      }
+    };
+
     getdetailvaliduser();
-  }, []);
+  }, [setAccount]);
 
   return (
     <header>
@@ -145,7 +145,7 @@ const Navbaar = () => {
                       .includes(text.toLowerCase())
                   )
                   .map((product) => (
-                    <ListItem>
+                    <ListItem key={product.id}>
                       <NavLink
                         to={`/getproductsone/${product.id}`}
                         onClick={() => setLiopen(true)}
@@ -214,7 +214,7 @@ const Navbaar = () => {
           >
             <MenuItem onClick={handleClose}>My account</MenuItem>
             {account ? (
-              <MenuItem onClick={handleClose} onClick={logoutuser}>
+              <MenuItem onClick={logoutuser}>
                 <LogoutIcon style={{ fontSize: 16, marginRight: 3 }} />
                 Logout
               </MenuItem>
@@ -231,40 +231,3 @@ const Navbaar = () => {
 export default Navbaar;
 
 // lognTitle
-
-{
-  /* <i className='fas fa-search' id="search"></i> */
-}
-{
-  /* <i class="fas fa-shopping-cart" id="icon"></i> */
-}
-
-// import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
-
-// aria-controls={open ? 'basic-menu' : undefined}
-// aria-haspopup="true"
-// aria-expanded={open ? 'true' : undefined}
-// onClick={handleClick}
-
-// const [anchorEl, setAnchorEl] = useState(null);
-//     const open = Boolean(anchorEl);
-//     const handleClick = (event) => {
-//         setAnchorEl(event.currentTarget);
-//     };
-//     const handleClose = () => {
-//         setAnchorEl(null);
-//     };
-
-// <Menu
-// id="basic-menu"
-// anchorEl={anchorEl}
-// open={open}
-// onClose={handleClose}
-// MenuListProps={{
-//     'aria-labelledby': 'basic-button',
-// }}
-// >
-// <MenuItem onClick={handleClose}>My account</MenuItem>
-// <MenuItem onClick={handleClose}>Logout</MenuItem>
-// </Menu>

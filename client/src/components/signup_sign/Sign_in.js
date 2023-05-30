@@ -12,7 +12,7 @@ const Sign_in = () => {
   });
   console.log(logdata);
 
-  const { account, setAccount } = useContext(LoginContext);
+  const { setAccount } = useContext(LoginContext);
 
   const adddata = (e) => {
     const { name, value } = e.target;
@@ -44,7 +44,7 @@ const Sign_in = () => {
     const data = await res.json();
     console.log(data);
 
-    if (res.status == 400 || !data) {
+    if (res.status === 400 || !data) {
       console.log("invalid details");
       toast.warn("invalid details", {
         position: "top-center",

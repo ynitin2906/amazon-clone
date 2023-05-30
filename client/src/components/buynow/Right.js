@@ -6,16 +6,15 @@ const Right = ({ iteam, total }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const totalAmount = () => {
+      let price = 0;
+      iteam.map((item) => {
+        return (price = item.price.cost + price);
+      });
+      setPrice(price);
+    };
     totalAmount();
   }, [iteam]);
-
-  const totalAmount = () => {
-    let price = 0;
-    iteam.map((item) => {
-      price = item.price.cost + price;
-    });
-    setPrice(price);
-  };
 
   return (
     <div className="right_buy">

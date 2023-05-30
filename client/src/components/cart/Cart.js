@@ -11,32 +11,37 @@ const Cart = () => {
 
   const history = useNavigate("");
 
-  const { account, setAccount } = useContext(LoginContext);
+  const { setAccount } = useContext(LoginContext);
 
   const [inddata, setInddata] = useState("");
   console.log(inddata);
 
-  const getinddata = async () => {
-    const res = await fetch(`/getproductsone/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await res.json();
-    // console.log(data);
-
-    if (res.status !== 201) {
-      console.log("no data available");
-    } else {
-      console.log("getdata");
-      setInddata(data);
-    }
-  };
-
   useEffect(() => {
+    // let isMounted = true;
+
+    const getinddata = async () => {
+      const res = await fetch(`/getproductsone/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      // console.log(data);
+
+      if (res.status !== 201) {
+        console.log("no data available");
+      } else {
+        console.log("getdata");
+        setInddata(data);
+      }
+    };
     setTimeout(getinddata, 1000);
+
+    // return () => {
+    //   isMounted = false;
+    // };
   }, [id]);
 
   // add cart function
