@@ -49,7 +49,7 @@ const Buynow = () => {
               <span className="leftbuyprice">Price</span>
               <Divider />
 
-              {cartdata.map((e, k) => (
+              {cartdata?.map((e, k) => (
                 <React.Fragment key={k}>
                   <div className="item_containert">
                     <img src={e.detailUrl} alt="" />

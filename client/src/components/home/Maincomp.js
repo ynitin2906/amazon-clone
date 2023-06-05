@@ -3,18 +3,21 @@ import React, { useEffect } from "react";
 import Banner from "./Banner";
 import Slide from "./Slide";
 import "./home.css";
-import { getProducts } from "../redux/actions/action";
-import { useDispatch, useSelector } from "react-redux";
+import { useContext } from "react";
+import { MyContext } from "../../App";
+// import { getProducts } from "../redux/actions/action";
+// import { useDispatch, useSelector } from "react-redux";
 
 const Maincomp = () => {
-  const { products } = useSelector((state) => state.getproductsdata);
-  console.log(products);
+  const { products } = useContext(MyContext);
+  // const { products } = useSelector((state) => state.getproductsdata);
+  // console.log(products);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, [dispatch]);
 
   return (
     <>

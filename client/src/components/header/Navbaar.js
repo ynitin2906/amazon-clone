@@ -139,12 +139,12 @@ const Navbaar = () => {
             {text && (
               <List className="extrasearch" hidden={liopen}>
                 {products
-                  .filter((product) =>
+                  ?.filter((product) =>
                     product.title.longTitle
                       .toLowerCase()
                       .includes(text.toLowerCase())
                   )
-                  .map((product) => (
+                  ?.map((product) => (
                     <ListItem key={product.id}>
                       <NavLink
                         to={`/getproductsone/${product.id}`}

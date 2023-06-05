@@ -8,7 +8,7 @@ const Right = ({ iteam, total }) => {
   useEffect(() => {
     const totalAmount = () => {
       let price = 0;
-      iteam.map((item) => {
+      iteam?.map((item) => {
         return (price = item.price.cost + price);
       });
       setPrice(price);

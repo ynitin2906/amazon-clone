@@ -6,7 +6,7 @@ const Subtotal = ({ iteam }) => {
   useEffect(() => {
     const totalAmount = () => {
       let price = 0;
-      iteam.map((item) => (price = item.price.cost + price));
+      iteam?.map((item) => (price = item.price.cost + price));
       setPrice(price);
     };
     totalAmount();
